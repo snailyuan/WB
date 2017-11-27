@@ -1,0 +1,226 @@
+@import "reset";
+html,body{width:100%;height: auto;overflow-x:hidden;overflow-y:auto;}
+*{box-sizing: border-box;font-family:"Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body{padding:0; color: #333;background-color: #f5f4f9;min-width: 7.5rem;width:100%;margin:0 auto;}
+
+img,span,a,label,i{display: inline-block;vertical-align: top;font-style: normal}
+h1{font-weight:normal;margin:0; padding:0;}
+.fl{float: left;}
+.fr{float:right;}
+$bg:#f2f2f2;
+$white:#fff;
+$c3:#333;
+$c6:#666;
+$c9:#999;
+$d9:#d9d9d9;
+$dd:#dddddd;
+$cc:#ccc;
+$blue:#4b61d1;
+$red:#f7655e;
+$border-w:0.04rem;
+$borderRadius:0.1rem;
+@mixin opacity_bg($opa:0.8,$col:#000){
+  background-color: $col;
+  opacity: $opa;
+  filter:alpha(opacity=$opa*100);
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: 2;
+}
+@mixin fontSize($val:1rem){
+  @media screen and (max-width: 321px) {
+    font-size:$val;
+  }
+  @media screen and (min-width: 321px) and (max-width:400px) {
+    font-size:$val + 0.02rem;
+  }
+  @media screen and (min-width: 400px) and(max-width:640px) {
+    font-size:$val + 0.04rem;;
+  }
+  @media screen and (min-width: 640px) {
+    font-size:$val + 0.06rem;;
+  }
+}
+//- @include fontFormat($fz:0.36rem,$fc:$c3,$ta:center);
+@mixin fontFormat($fz:1rem,$fc:$c3,$ta:left){
+  color:$fc;
+  text-align: $ta;
+  @media screen and (max-width: 321px) {
+    font-size:$fz+0.04rem;
+  }
+  @media screen and (min-width: 321px) and (max-width:400px) {
+    font-size:$fz + 0.03rem;
+  }
+  @media screen and (min-width: 400px) and(max-width:640px) {
+    font-size:$fz;
+  }
+  @media screen and (min-width: 640px) {
+    font-size:$fz ;
+  }
+}
+@mixin fontFormatS($fz:1rem,$fc:$c3,$ta:left){
+  color:$fc;
+  text-align: $ta;
+  @media screen and (max-width: 321px) {
+    font-size:$fz+0.08rem;
+  }
+  @media screen and (min-width: 321px) and (max-width:400px) {
+    font-size:$fz + 0.06rem;
+  }
+  @media screen and (min-width: 400px) and(max-width:640px) {
+    font-size:$fz + 0.04rem;
+  }
+  @media screen and (min-width: 640px) {
+    font-size:$fz + 0.02rem;;
+  }
+}
+.border-shadow{
+  box-shadow:0 0.01rem 0.03rem #bfbfbf;
+}
+$a-btn-radius:0.24rem;
+.a-btn{
+  border-radius:$a-btn-radius;
+  text-align: center;
+  @include fontFormat($fz:0.28rem,$ta:center,$fc:$white);
+}
+
+.a-btn-border-white{
+  color: $white;
+  border:0.02rem solid $white;
+}
+.a-btn-border-red{
+  color: $red;
+  border:0.02rem solid $red;
+  border-radius: 0.28rem;
+}
+//省市区
+.select-region{
+  width: 100%;
+  overflow: hidden;
+  select{
+    float: left;
+    width: 33%;
+    padding-top:0.21rem;
+    padding-bottom:0.21rem;
+    height: 1.46rem;
+    background: $white;
+    border: 0.02rem solid $d9;
+    border-left: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    @include fontFormat($fz:0.48rem,$fc:#979899,$ta:center);
+    padding-left: 10%;
+  }
+  select:last-child{
+    border-right:0;
+    width: 34%;
+  }
+}
+
+
+//表单
+form {
+  .form-row {
+    background-color: $white;
+    border: 0.02rem solid $d9;
+    border-bottom: 0;
+    width: 100%;
+    padding: 0.28rem 0;
+    border-radius: 0.04rem;
+    label {
+      width: 2.4rem;
+      height: 0.6rem;
+      line-height: 0.6rem;
+      font-size: 0.36rem;
+      color: $c9;
+      border-right: 1px solid #d9d9d9;
+      span {
+        width: 0.6rem;
+        height: 0.6rem;
+        @include fontFormat($fz: 0.5rem, $fc: $c9, $ta: center);
+        vertical-align: top;
+        margin: 0.01rem 0.1rem;
+      }
+      .icon-lock {
+        margin-top: 0;
+      }
+    }
+    input[type=text] {
+      background: transparent;
+      width: 4.8rem;
+      height: 0.6rem;
+      line-height: 0.6rem;
+      font-size: 0.36rem;
+      color: $c3;
+      padding-left: 0.2rem;
+    }
+    input[type=password] {
+      background: transparent;
+      width: 4.8rem;
+      height: 0.6rem;
+      line-height: 0.6rem;
+      font-size: 0.36rem;
+      color: $c3;
+      padding-left: 0.2rem;
+    }
+    input.error-input {
+      border-color: $red;
+    }
+  }
+}
+
+
+//icon
+.icon-arrow-right{
+
+}
+.icon-star-yellow{
+
+}
+.icon-level-star{
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: blue;
+}
+.icon{
+  background-color: red;
+}
+.icon-king{
+
+}
+.icon-cake{
+
+}
+.icon-package{
+
+}
+.icon-more{
+
+}
+.icon-sign-duihao{
+
+}
+.icon-luck-draw{
+
+}
+.icon-integral-mall{
+
+}
+.icon-invitation{
+
+}
+.icon-task-sign{
+
+}
+.icon-task-invite{
+
+}
+.icon-task-invest{
+
+}
+.icon-status-finished{
+
+}

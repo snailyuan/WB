@@ -1,0 +1,38 @@
+extends ../layout/layout
+
+block append headTitle
+  title 每日签到
+
+
+
+block content
+    section.sign
+        .card
+            img(src="", alt="")
+            .inner
+                div.topDiv
+                    span.num 2586
+                    | 积分
+                div 已连续签到
+                    span.day 10
+                    | 天
+            img.clearfix(src="", alt="")
+        .main
+            .tips 每连续签到7天即可获得
+                span 30元投资现金券1张
+            #scheduleBox
+                
+            .footer
+                .tips 今日签到将获得5积分
+                .btn 立即签到
+
+block append footer
+
+    script(type="text/javascript" src="../../global/js/schedule.js")
+    script.
+        var mySchedule = new Schedule({
+            el: '#scheduleBox',      
+        });                
+
+             
+         
