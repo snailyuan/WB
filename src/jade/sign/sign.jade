@@ -6,21 +6,22 @@ block append headTitle
 block content
     section.sign
         .card
-            img(src="", alt="")
-            .inner
+            //- img(src="", alt="")
+            span.bg_title.titleLeft
+            .inner.clearfix
                 div.topDiv
                     span.num 2586
                     | 积分
                 div 已连续签到
                     span.day 10
                     | 天
-            img.clearfix(src="", alt="")
+            //- img.clearfix(src="", alt="")
+            span.bg_title.titleRight
         .main
             .tips 每连续签到7天即可获得
                 span 30元投资现金券1张
-            #scheduleBox
-                
-            .footer
+            #scheduleBox  
+            #footerBtn
                 .tips 今日签到将获得5积分
                 .btn 立即签到
 
@@ -30,7 +31,18 @@ block append footer
     script.
         var mySchedule = new Schedule({
             el: '#scheduleBox',      
-        });                
+        });
+        var setTitle = '';
+        var setContents = '';
+        var setButton = '';
+        //- 签到成功
+        $('#footerBtn').on('click',function(){
+            setTitle = '提示';
+            setContents = '您好，游客不能交易，请“开立真实账户”或“开立模拟账户”';
+            setButton = '["取消","确定"]';
+            $(this).openWindow(setTitle,setContents,setButton);
+        });   
+        //- 补签  
 
              
          
